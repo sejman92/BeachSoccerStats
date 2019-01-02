@@ -45,6 +45,8 @@ namespace BeachSoccerStats.API.Controllers
         [HttpPost("login")]
         public async Task<IActionResult> Login(UserForLoginDto userForLoginDto)
         {
+
+            throw new Exception("Computer said no!");
             var userFromRepo = await _repo.Login(userForLoginDto.Username.ToLower(), userForLoginDto.Password);
 
             if (userFromRepo == null)
@@ -69,7 +71,8 @@ namespace BeachSoccerStats.API.Controllers
             var tokenHandler = new JwtSecurityTokenHandler();
             var token = tokenHandler.CreateToken(tokenDescriptor);
 
-            return Ok(new {token = tokenHandler.WriteToken(token)});
+            return Ok(new {token = tokenHandler.WriteToken(token)});  
+            
         }
     }
 }
