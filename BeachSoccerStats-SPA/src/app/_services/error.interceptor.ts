@@ -12,7 +12,7 @@ export class ErrorInterceptor implements HttpInterceptor {
                 // // tslint:disable-next-line:no-debugger
                 // debugger;
                 if (error instanceof HttpErrorResponse) {
-                    if(error.status === 401) {
+                    if (error.status === 401) {
                         return throwError(error.statusText);
                     }
                     const applicationError = error.headers.get('Application-Error');
