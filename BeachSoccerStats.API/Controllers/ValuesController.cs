@@ -55,5 +55,9 @@ namespace BeachSoccerStats.API.Controllers
         public void Delete(int id)
         {
         }
+        private void GetSuperPartia()
+        {
+
+        }
     }
 }
