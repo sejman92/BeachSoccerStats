@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BeachSoccerStats.API.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20190202005241_ExtendedUserClass")]
-    partial class ExtendedUserClass
+    [Migration("20190202012216_ExtendUserEntity")]
+    partial class ExtendUserEntity
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -45,11 +45,11 @@ namespace BeachSoccerStats.API.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<DateTime>("CT");
-
                     b.Property<string>("City");
 
                     b.Property<string>("Country");
+
+                    b.Property<DateTime>("Created");
 
                     b.Property<DateTime>("DateOfBirth");
 

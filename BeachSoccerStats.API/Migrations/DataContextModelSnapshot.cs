@@ -43,11 +43,11 @@ namespace BeachSoccerStats.API.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<DateTime>("CT");
-
                     b.Property<string>("City");
 
                     b.Property<string>("Country");
+
+                    b.Property<DateTime>("Created");
 
                     b.Property<DateTime>("DateOfBirth");
 

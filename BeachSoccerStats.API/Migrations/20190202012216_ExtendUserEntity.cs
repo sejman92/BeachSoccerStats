@@ -3,16 +3,10 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace BeachSoccerStats.API.Migrations
 {
-    public partial class ExtendedUserClass : Migration
+    public partial class ExtendUserEntity : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.AddColumn<DateTime>(
-                name: "CT",
-                table: "Users",
-                nullable: false,
-                defaultValue: new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified));
-
             migrationBuilder.AddColumn<string>(
                 name: "City",
                 table: "Users",
@@ -22,6 +16,12 @@ namespace BeachSoccerStats.API.Migrations
                 name: "Country",
                 table: "Users",
                 nullable: true);
+
+            migrationBuilder.AddColumn<DateTime>(
+                name: "Created",
+                table: "Users",
+                nullable: false,
+                defaultValue: new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified));
 
             migrationBuilder.AddColumn<DateTime>(
                 name: "DateOfBirth",
@@ -95,15 +95,15 @@ namespace BeachSoccerStats.API.Migrations
                 name: "Photos");
 
             migrationBuilder.DropColumn(
-                name: "CT",
-                table: "Users");
-
-            migrationBuilder.DropColumn(
                 name: "City",
                 table: "Users");
 
             migrationBuilder.DropColumn(
                 name: "Country",
+                table: "Users");
+
+            migrationBuilder.DropColumn(
+                name: "Created",
                 table: "Users");
 
             migrationBuilder.DropColumn(
