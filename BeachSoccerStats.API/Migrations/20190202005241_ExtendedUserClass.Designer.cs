@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BeachSoccerStats.API.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20190202003857_ExtendedUserClass")]
+    [Migration("20190202005241_ExtendedUserClass")]
     partial class ExtendedUserClass
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -31,7 +31,7 @@ namespace BeachSoccerStats.API.Migrations
 
                     b.Property<string>("Url");
 
-                    b.Property<int?>("UserId");
+                    b.Property<int>("UserId");
 
                     b.HasKey("Id");
 
@@ -90,9 +90,10 @@ namespace BeachSoccerStats.API.Migrations
 
             modelBuilder.Entity("BeachSoccerStats.API.Models.Photo", b =>
                 {
-                    b.HasOne("BeachSoccerStats.API.Models.User")
+                    b.HasOne("BeachSoccerStats.API.Models.User", "User")
                         .WithMany("Photos")
-                        .HasForeignKey("UserId");
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 #pragma warning restore 612, 618
         }
